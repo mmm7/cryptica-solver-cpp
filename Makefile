@@ -17,7 +17,7 @@ test: network_sort_test board_test solve_test
 	./solve_test
 
 RESULTS: run.sh solve
-	./run.sh > $@
+	./run.sh > $@.csv
 
 $(GTEST): force_look
 	$(ECHO) looking into gtest/src : $(MAKE) $(MFLAGS)
