@@ -66,7 +66,7 @@ SolveResult solve(const Board& board, const State& start_state) {
     }
     // Handle next state in group.
     const State* curr_state = state_groups[min_moves].Pop();
-    if (STATS) { --ss; if (ss > res.max_mem_state) res.max_mem_state = ss; }
+    if (STATS) { --ss; }
     // We know that this state is not the goal, no need to check here.
     //const long long curr_hash = curr_state->Hash();
     const int history_len = curr_state->GetHistoryLen();
@@ -104,7 +104,7 @@ SolveResult solve(const Board& board, const State& start_state) {
           // found state is in a bigger group, remove from that group.
           state_groups[prev_min_moves].RemoveState(new_hash);
           if (STATS) ++res.num_visited_hit_improve;
-          if (STATS) { --ss; if (ss > res.max_mem_state) res.max_mem_state = ss; }
+          if (STATS) { --ss; }
         } else {
           // found state is in a smaller or equal group, drop the new state.
           delete new_state;
